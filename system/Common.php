@@ -20,9 +20,9 @@ function value($input, $default = false) {
         $return = $_SESSION['post'][$input];
         unset($_SESSION['post'][$input]);
         return $return;
-    } elseif ($default) {
+    } elseif (!empty($default)) {
         return $default;
-    }
+    } 
     return false;
 }
 
