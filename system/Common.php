@@ -14,6 +14,17 @@ function render($name, $data = []) {
     foreach ($data as $key => $value) {
         $$key = $value;
     }
+    
+    $return  = include_once APP_PATH . 'Views/header.php';
+    $return .= include_once APP_PATH . 'Views/' . $name . '.php';
+    $return .= require_once APP_PATH . 'Views/footer.php';
+
+    return $return;
+
+
+    //return $return;
+}
+
 
 function value($input, $default = false) {
     if (isset($_SESSION['post'][$input])) {
