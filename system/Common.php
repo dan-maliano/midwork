@@ -10,6 +10,11 @@ if (!function_exists('view')) {
     }
 }
 
+function render($name, $data = []) {
+    foreach ($data as $key => $value) {
+        $$key = $value;
+    }
+
 function value($input, $default = false) {
     if (isset($_SESSION['post'][$input])) {
         $return = $_SESSION['post'][$input];
